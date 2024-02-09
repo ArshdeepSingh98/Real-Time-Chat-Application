@@ -1,10 +1,10 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-// const authRoutes = require("./routes/auth");
+const authRoutes = require("./routes/auth");
 // const messageRoutes = require("./routes/messages");
 const app = express();
-// const socket = require("socket.io");
+const socket = require("socket.io");
 require("dotenv").config();
 
 app.use(cors());
@@ -22,7 +22,7 @@ mongoose
         console.log(err.message);
     });
 
-// app.use("/api/auth", authRoutes);
+app.use("/api/auth", authRoutes);
 // app.use("/api/messages", messageRoutes);
 
 const server = app.listen(process.env.PORT, () =>

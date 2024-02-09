@@ -5,7 +5,7 @@
 ## Overview
 
 Libraries used in Sever: Express, mongoose, nodemon, bcrypt, cors, dotenv.
-Libraries used in Client: axios, styled-components, react-router-dom, redux, emoji-picker-react, react-icons, react-toastify
+Libraries used in Client: axios, styled-components, react-router-dom, redux, emoji-picker-react, react-icons, react-toastify, buffer
 
 ## Demo
 

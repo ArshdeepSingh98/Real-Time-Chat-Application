@@ -14,17 +14,26 @@ export default function Chat() {
     const [contacts, setContacts] = useState([]);
     const [currentChat, setCurrentChat] = useState(undefined);
     const [currentUser, setCurrentUser] = useState(undefined);
-    useEffect(async () => {
-        if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
-            navigate("/login");
-        } else {
-            setCurrentUser(
-                await JSON.parse(
-                    localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
-                )
-            );
+
+    // Check if current user is present
+    useEffect(() => {
+        async function isUserPresent() {
+            if (!localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)) {
+                navigate("/login");
+            } else {
+                setCurrentUser(
+                    await JSON.parse(
+                        localStorage.getItem(
+                            process.env.REACT_APP_LOCALHOST_KEY
+                        )
+                    )
+                );
+            }
         }
+
+        isUserPresent();
     }, []);
+
     // useEffect(() => {
     //     if (currentUser) {
     //         socket.current = io(host);
@@ -32,23 +41,30 @@ export default function Chat() {
     //     }
     // }, [currentUser]);
 
-    useEffect(async () => {
-        if (currentUser) {
-            if (currentUser.isAvatarImageSet) {
-                const data = await axios.get(
-                    `${allUsersRoute}/${currentUser._id}`
-                );
-                setContacts(data.data);
-            } else {
-                navigate("/setAvatar");
+    // Fetch all other users
+    useEffect(() => {
+        const fetchOtherUsers = async () => {
+            if (currentUser) {
+                if (currentUser.isAvatarImageSet) {
+                    const data = await axios.get(
+                        `${allUsersRoute}/${currentUser._id}`
+                    );
+                    setContacts(data.data);
+                } else {
+                    navigate("/setAvatar");
+                }
             }
-        }
+        };
+
+        fetchOtherUsers();
     }, [currentUser]);
+
     const handleChatChange = (chat) => {
         setCurrentChat(chat);
     };
     return (
-        <>
+        <div>
+            
             <Container>
                 <div className="container">
                     <Contacts
@@ -65,7 +81,7 @@ export default function Chat() {
                     )}
                 </div>
             </Container>
-        </>
+        </div>
     );
 }
 
@@ -77,7 +93,7 @@ const Container = styled.div`
     justify-content: center;
     gap: 1rem;
     align-items: center;
-    background-color: #131324;
+    background-color: #0e1217;
     .container {
         height: 85vh;
         width: 85vw;
