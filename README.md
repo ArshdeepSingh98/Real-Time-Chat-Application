@@ -1,11 +1,11 @@
 # Real-Time-Chat-Application
 
-## A feature rich app using React, Redux, Node.js, MongoDB, and Socket.io for seamless real-time messages with private and group chats.
-
 ## Overview
 
-Libraries used in Sever: Express, mongoose, nodemon, bcrypt, cors, dotenv.
-Libraries used in Client: axios, styled-components, react-router-dom, redux, emoji-picker-react, react-icons, react-toastify, buffer
+A feature rich app using React, Redux, Node.js, MongoDB, and Socket.io for seamless real-time messages with private and group chats.
+
+Libraries used in Sever: Express, mongoose, nodemon, bcrypt, cors, dotenv, socket.io
+Libraries used in Client: axios, styled-components, react-router-dom, redux, emoji-picker-react, react-icons, react-toastify, buffer, socket.io-client
 
 ## Steps to run
 
@@ -25,6 +25,15 @@ Libraries used in Client: axios, styled-components, react-router-dom, redux, emo
 -   brew services start mongodb-community
 -   Use MongoDB Compass to see the database changes
 
-## Demo
+## Screenshot
+
+![Screenshot](chat-screenshot.png)
 
 ## Skills
+
+-   React.js
+-   Socket\.io
+-   MongoDB
+-   Express.js
+-   Node.js
+-   MERN stack

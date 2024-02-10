@@ -11,9 +11,9 @@ export default function ChatContainer({ currentChat, socket }) {
     const scrollRef = useRef();
     const [arrivalMessage, setArrivalMessage] = useState(null);
 
-    // If currentChat is present set Message
+    // Retrieve all messages of the current user to the other chat user
     useEffect(() => {
-        const getMessage = async () => {
+        const getAllMessagesofSelectedUser = async () => {
             const data = await JSON.parse(
                 localStorage.getItem(process.env.REACT_APP_LOCALHOST_KEY)
             );
@@ -24,7 +24,7 @@ export default function ChatContainer({ currentChat, socket }) {
             setMessages(response.data);
         };
 
-        getMessage();
+        getAllMessagesofSelectedUser();
     }, [currentChat]);
 
     useEffect(() => {

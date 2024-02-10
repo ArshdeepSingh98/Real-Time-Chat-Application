@@ -34,12 +34,12 @@ export default function Chat() {
         isUserPresent();
     }, []);
 
-    // useEffect(() => {
-    //     if (currentUser) {
-    //         socket.current = io(host);
-    //         socket.current.emit("add-user", currentUser._id);
-    //     }
-    // }, [currentUser]);
+    useEffect(() => {
+        if (currentUser) {
+            socket.current = io(host);
+            socket.current.emit("add-user", currentUser._id);
+        }
+    }, [currentUser]);
 
     // Fetch all other users
     useEffect(() => {
