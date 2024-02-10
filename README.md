@@ -8,22 +8,23 @@ Libraries used in Sever: Express, mongoose, nodemon, bcrypt, cors, dotenv, socke
 Libraries used in Client: axios, styled-components, react-router-dom, redux, emoji-picker-react, react-icons, react-toastify, buffer, socket.io-client
 
 ## Steps to run
+1. Run mongoDB database server
 
-1. Run Client
-
--   cd public
--   npm start
+-   (To Install MongoDB on mac) `brew tap mongodb/brew` and `brew install mongodb-community`
+-   To start: `brew services start mongodb-community`
+-   To stop: `brew services stop mongodb-community`
+-   Use _MongoDB Compass_ to see the database changes
 
 2. Run Server
 
 -   cd server
 -   npm start
 
-3. Run mongoDB database server
+3. Run Client
 
--   (To Install MongoDB on mac) `brew tap mongodb/brew` and `brew install mongodb-community`
--   brew services start mongodb-community
--   Use MongoDB Compass to see the database changes
+-   cd public
+-   npm start
+
 
 ## Screenshot
 
